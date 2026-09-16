@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagenes/icono.png" type="image/png">
+    <title>JS - Cuestionario personalizado.</title>
+</head>
+<body>
+    <h1>
+        <span class="amarillo">JavaScript</span> - Cuestionario personalizado.
+    </h1>
+    <p>
+        En esta etapa vas a programar la lógica del juego de preguntas utilizando <span class="amarillo">JavaScript</span>. El objetivo es que, cuando el usuario presione el botón <button>Enviar</button> , el programa detecte cuáles respuestas son correctas, calcule el puntaje obtenido, lo guarde en el navegador y luego muestre el resultado en el documento final.
+    </p>
+    <hr>
+    <h2>
+        Requisitos técnicos.
+    </h2>
+    <ol>
+        <li>
+            <p>
+                Detectar el evento click en el botón <button>Enviar</button>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Comprobar si los <b>Checkbox</b>(<input type="checkbox" name="" id="">) correctos fueron seleccionados.
+            </p>
+        </li>
+        <li>
+            <p>
+                Sumar un punto por cada respuesta correcta marcada.
+            </p>
+        </li>
+        <li>
+            <p>
+                Guardar el puntaje total usando <code class="gris"><span class="violeta">localStorage</span><span class="dorado">()</span></code>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Redirigir automáticamente al documento final donde se mostrará el puntaje.
+            </p>
+        </li>
+    </ol>
+    <center>
+        <h3>
+            Ayudas
+        </h3>
+    </center>
+    <h4>
+        Vincular <span class="amarillo">JavaScript</span>.
+    </h4>
+    <p>
+        Para vincular un <span class="verde">script</span> a nuestro documento <span class="naranja">HTML</span> se utiliza la etiqueta <span class="verde">script</span>.
+    </p>
+    <p>
+        <i>Código de ejemplo:</i>
+    </p>
+<pre><code class="cpp">    <span class="gris">&lt;!-- Enlazar JavaScript --&gt;</span>
+    &lt;<span class="verde">script</span> <span class="celeste">src</span>="<span class="celeste">main.js</span>"&gt;&lt;/<span class="verde">script</span>&gt;</code></pre>
+    <br>
+    <fieldset>
+        <legend>Atención</legend>
+        <p>
+            <i>
+                Asegurate de que el nombre del archivo sea el mismo que colocaste en el atributo <code class="gris"><span class="celeste">src</span></code> y que ambos archivos se encuentren en la misma carpeta del proyecto.
+            </i>
+        </p>
+        <p>
+            <i>
+                La vinculación del archivo <span class="amarillo">JavaScript</span> debe realizarse al final del <code class="gris">&lt;<span class="verde">body</span>&gt;</code>, antes de la etiqueta de cierre <code class="gris">&lt;/<span class="verde">body</span>&gt;</code>.
+            </i>
+        </p>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <h4>
+        <span class="violeta">addEventListener</span><span class="dorado">()</span>.
+    </h4>
+    <p>
+        Se usa para controlar eventos, por ejemplo cuando el usuario hace click en el botón <button>Enviar</button>. Cuando ocurre ese evento, se ejecuta la función que definas.
+    </p>
+    <p>
+        <i>
+            Código de ejemplo:
+        </i>
+    </p>
+<pre><code class="cpp">    <span class="rojo">let</span> boton = <span class="celeste">document</span>.<span class="violeta">getElementById</span><span class="dorado">(</span><span class="celeste">'btnEnviar'</span><span class="dorado">)</span>;  <span class="gris">// En esta linea se selecciona el elemento HTML por el ID</span>
+boton.<span class="violeta">addEventListener</span><span class="dorado">(</span><span class="celeste">"click"</span>,<span class="azul">()</span><span class="rojo">=></span><span class="azul">{</span>
+        <span class="gris">//   Código que se ejecuta al hacer click en "Enviar".</span>    
+<span class="azul">}</span><span class="dorado">)</span>;</code></pre><br>
+    <hr>
+    <br>
+    <br>
+    <h4>
+        <code class="gris">.checked</code>
+    </h4>
+    <p>
+        La propiedad <code class="gris">.checked</code> permite comprobar si un elemento de tipo <code class="gris"><span class="celeste">checkbox</span></code> o <code class="gris"><span class="celeste">radio</span></code> está seleccionado.
+    </p>
+    <p>
+        Devuelve un valor booleano:
+    </p>
+    <ul>
+        <li>
+            <p>
+                <code class="gris">true</code> → Está seleccionado.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code class="gris">false</code> → No está seleccionado.
+            </p>
+        </li>
+    </ul>
+    <p>
+        <i>
+            Código de ejemplo:
+        </i>
+    </p>
+<pre><code class="cpp">    <span class="celeste">console</span>.<span class="violeta">log</span><span class="dorado">(</span><span class="celeste">document</span>.<span class="violeta">getElementById</span><span class="dorado">(</span><span class="celeste">"aceptar"</span><span class="dorado">)</span>.checked<span class="dorado">)</span>;</code></pre><br>
+    <p>
+        Mostrará <code class="gris">true</code> por consola, si el <span class="celeste">checkbox</span> está seleccionado. Y <code class="gris">false</code> si el <span class="celeste">checkbox</span> no está seleccionado.
+    </p>
+    <hr>
+    <br>
+    <h4>
+        <span class="violeta">localStorage</span><span class="dorado">()</span>.
+    </h4>
+    <p>
+        Guarda información en el memoria del navegador. Los datos guardados con <code class="gris"><span class="violeta">localStorage</span></code> permanecen aunque se recargue el documento.
+    </p>
+<pre><code class="cpp">    <span class="rojo">let</span> puntaje = <span class="verde">0</span>;
+    <span class="violeta">if</span><span class="dorado">(</span>respuesta1<span class="dorado">)</span> puntaje<span class="celeste">++</span> <span class="gris"> // Si respuesta1 da "true", se sumara 1 a la variable puntaje.</span>
+    <span class="celeste">localStorage</span>.<span class="violeta">setItem</span><span class="dorado">(</span><span class="celeste">"total"</span>, puntaje<span class="dorado">)</span>; <span class="gris">// Guarda el valor de la variable puntaje en el espacio de memoria del navegador declarado "total".</span>
+    
+    <span class="gris">// En el documento final.</span>
+    <span class="rojo">let</span> puntos = <span class="celeste">localStorage</span>.<span class="violeta">getItem</span><span class="dorado">(</span><span class="celeste">"total"</span><span class="dorado">)</span>;    <span class="gris">// Con getItem busca en la memoria alguna dirección que se llame "total", y la asigna a la variable puntos.</span>
+    <span class="celeste">console</span>.<span class="violeta">log</span><span class="dorado">(</span><span class="celeste">`Tu puntaje fue:</span><span class="azul">${</span>puntos<span class="azul">}</span><span class="celeste">`</span><span class="dorado">)</span>;</code></pre>
+    <br>
+    <hr>
+    <br>
+    <h4>
+        <span class="celeste">window</span>.<span class="celeste">location</span>.<span class="celeste">href</span>
+    </h4>
+    <p>
+        Permite redigir a otro documento.
+    </p>
+    <p>
+        <i>
+            Código  de ejemplo:
+        </i>
+    </p>
+<pre><code class="cpp">    <span class="gris"> // Redirige al documento final</span>
+    <span class="celeste">window</span>.<span class="celeste">location</span>.<span class="celeste">href</span> = <span class="celeste">"final.html"</span></code></pre>
+    <br>
+    <hr>
+    <br>
+</body>
+</html>
+
